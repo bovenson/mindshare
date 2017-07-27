@@ -85,6 +85,11 @@ a {
 
 .container-box-item {
     @extend .container-box-item-base;
+
+    &-bk-color {
+        background-color: $a-background-color-hover;
+    }
+
     &-bottom {
         @extend .container-box-item-base;
         border-bottom: $default-border;
@@ -158,3 +163,13 @@ a {
         color: $teal;
     }
 }
+
+/* 文件选择器 */
+$my-file-text: (
+  placeholder: (
+    en: "选择文件...",
+  ),
+  button-label: (
+    en: "浏览",
+  )
+);
