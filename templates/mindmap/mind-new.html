@@ -1,0 +1,62 @@
+{% extends "mindmap/includes/base.html" %}
+{% load staticfiles %}
+
+{# 设置标题 #}
+{% block title %}{{ title }}{% endblock %}
+
+{# 自定义css #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'mindmap/css/new-mind.css' %}">
+{% endblock %}
+
+{# 设置body #}
+{% block body %}
+    <div id="bodyContainer" class="container">
+        <div id="midContainer" class="col-lg-8 offset-lg-2">
+            <div class="container-box">
+                <div class="container-box-item-bottom">
+                    <p class="one-line-tip-p">发布主题</p>
+                </div>
+
+                <div class="container-box-item-bottom">
+                    <p class="one-line-tip-p">主题标题</p>
+                </div>
+                <div class="container-box-item-bottom container-box-item-input">
+                    <input placeholder="输入标题" />
+                </div>
+
+                <div class="container-box-item-bottom">
+                    <p class="one-line-tip-p">描述</p>
+                </div>
+                <div class="container-box-item-bottom container-box-item-input">
+                    <textarea class="no-padding-margin" rows="10" placeholder="输入描述"></textarea>
+                </div>
+
+                <div class="container-box-item-bottom">
+                    <p class="one-line-tip-p">选择图片</p>
+                </div>
+
+                <div class="container-box-item-bottom">
+                    <p class="one-line-tip-p">文件(可选)</p>
+                </div>
+
+
+                <div class="container-box-item-bottom">
+                    <label class="no-padding-margin">
+                        <select>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="container-box-item">
+                    <a href="#" class="my-button my-button-confirm">发布</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

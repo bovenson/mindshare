@@ -121,7 +121,7 @@ USE_TZ = True
 
 # 设置静态文件
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "mindmap/static"),
+    os.path.join(BASE_DIR, "static/"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/deploy')
 STATIC_URL = '/static/'

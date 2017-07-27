@@ -6,25 +6,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}书云{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 
     {# 设置图标 #}
-    <link href="{% static 'img/favicon.ico' %}" rel="bookmark" type="image/x-icon" />
-    <link href="{% static 'img/favicon.ico' %}" rel="icon" type="image/x-icon" />
-    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
+    <link href="{% static 'mindmap/img/favicon.png' %}" rel="bookmark" type="image/x-icon" />
+    <link href="{% static 'mindmap/img/favicon.png' %}" rel="icon" type="image/x-icon" />
+    <link href="{% static 'mindmap/img/favicon.png' %}" rel="shortcut icon" type="image/x-icon" />
 
     {# 引入公用静态css文件 #}
-    <link rel="stylesheet" href="{% static 'css/lib/bootstrap-4.0.0-alpha.6.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/lib/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'book/css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'mindmap/lib/css/bootstrap-4.0.0-alpha.6.css' %}">
+{#    <link rel="stylesheet" href="{% static 'mindmap/lib/css/font-awesome.css' %}">#}
+    <link rel="stylesheet" href="{% static 'mindmap/css/common.css' %}">
 
     {# 设置页面自定义css #}
     {% block css %}{% endblock %}
 </head>
-<body style="background-color: #f5f8fa; padding-top: 54px;">
+<body>
     {# 导航栏 #}
     {% block navigation %}
-        {% include "includes/_navigation.html" %}
+        {% include "mindmap/includes/_navigation.html" %}
     {% endblock %}
 
     {# body #}
@@ -33,11 +33,10 @@
     {# 自定义js #}
     {% block js %}
     {# 加载requirejs #}
-        <script src="{% static 'js/lib/jquery-3.1.1.min.js' %}"></script>
-        <script src="{% static 'js/lib/tether.min.js' %}"></script>
-        <script src="{% static 'js/lib/bootstrap-4.0.0-alpha.6.js' %}"></script>
-        <script src="{% static 'book/js/lib/jquery.cookie.js' %}"></script>
-        <script src="{% static 'book/js/common.js' %}"></script>
+        <script src="{% static 'mindmap/lib/js/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'mindmap/lib/js/tether.min.js' %}"></script>
+        <script src="{% static 'mindmap/lib/js/bootstrap-4.0.0-alpha.6.js' %}"></script>
+        <script src="{% static 'mindmap/lib/js/jquery.cookie.js' %}"></script>
     {% endblock %}
 </body>
 </html>

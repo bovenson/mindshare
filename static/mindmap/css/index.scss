@@ -1,3 +1,12 @@
-#bodyContainer {
-    margin-top: 1rem;
+@import "-colors";
+@import "-theme";
+@import "-mixin";
+
+#category {
+    padding: .2rem .8rem;
+}
+
+#sortBy {
+    padding: .2rem .8rem;
+    background-color: $a-background-color-hover;
 }

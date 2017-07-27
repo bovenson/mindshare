@@ -1,16 +1,14 @@
 @charset "UTF-8";
 /* a 标签相关颜色 */
+/* 颜色 */
+/* material design color */
 body {
   background-color: #f5f8fa; }
 
-a {
-  text-decoration: none; }
-  a:hover {
-    text-decoration: none; }
-  a:visited {
-    text-decoration: none; }
-  a:link {
-    text-decoration: none; }
+/* common */
+.no-padding-margin {
+  padding: 0;
+  margin: 0; }
 
 /* 导航栏 */
 #navbar {
@@ -31,7 +29,8 @@ a {
     display: flex;
     align-items: center; }
   #navbar .my-nav-link {
-    margin-left: 0.8rem; }
+    font-size: 0.9rem;
+    margin-left: 0.9rem; }
     #navbar .my-nav-link:hover {
       color: #aaa; }
 
@@ -39,10 +38,75 @@ a {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
 
+/* a 标签 */
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+  a:visited {
+    text-decoration: none; }
+  a:link {
+    text-decoration: none; }
+
+.my-link-tag {
+  color: #66757f;
+  padding: .2rem;
+  font-size: .8rem; }
+  .my-link-tag:hover {
+    background-color: #f9f9f9; }
+
+/* container box */
 .container-box {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.15rem;
-  background-color: white;
-  padding: 0.3rem; }
+  background-color: white; }
+
+.container-box-item-base, .container-box-item, .container-box-item-bottom, .container-box-item-top {
+  padding: 0.3rem .8rem; }
+
+.container-box-item-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+.container-box-item-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.15); }
+.container-box-item-input {
+  padding-right: 0; }
+  .container-box-item-input input, .container-box-item-input textarea {
+    width: 100%;
+    color: #607D8B;
+    font-size: 0.6rem;
+    border: none;
+    box-shadow: none;
+    outline: none; }
+    .container-box-item-input input:focus, .container-box-item-input textarea:focus {
+      border: none;
+      box-shadow: none;
+      outline: none; }
+  .container-box-item-input textarea {
+    margin: -0.3rem -1.5rem -0.7rem 0; }
+
+/* body container */
+#bodyContainer {
+  margin-top: 1.5rem; }
+
+/* p 提示 */
+.one-line-tip-base, .one-line-tip, .one-line-tip-p {
+  font-size: 0.6rem;
+  color: black; }
+
+.one-line-tip-p {
+  display: inline-block;
+  margin: 0; }
+
+/* button */
+.my-button {
+  color: #009688;
+  font-size: 0.6rem;
+  padding: .2rem .3rem; }
+  .my-button-confirm:hover {
+    background-color: #f9f9f9; }
+  .my-button-cancel:hover {
+    background-color: #f9f9f9; }
+  .my-button:visited {
+    color: #009688; }
 
 /*# sourceMappingURL=common.css.map */

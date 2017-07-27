@@ -6,11 +6,10 @@ body {
     background-color: $body-background-color;
 }
 
-a {
-    text-decoration: none;
-    &:hover {text-decoration: none;}
-    &:visited {text-decoration: none;}
-    &:link {text-decoration: none;}
+/* common */
+.no-padding-margin {
+    padding: 0;
+    margin: 0;
 }
 
 /* 导航栏 */
@@ -42,7 +41,8 @@ a {
     }
 
     .my-nav-link {
-        margin-left: 0.8rem;
+        font-size: 0.9rem;
+        margin-left: 0.9rem;
 
         &:hover {
             color: $a-color-hover;
@@ -55,9 +55,106 @@ a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* a 标签 */
+a {
+    text-decoration: none;
+    &:hover {text-decoration: none;}
+    &:visited {text-decoration: none;}
+    &:link {text-decoration: none;}
+}
+
+.my-link-tag {
+    color: $default-font-color;
+    padding: .2rem;
+    font-size: .8rem;
+    &:hover {
+        background-color: $a-background-color-hover;
+    }
+}
+
+/* container box */
 .container-box {
     border: $default-border;
     border-radius: 0.15rem;
     background-color: white;
-    padding: 0.3rem;
+}
+
+.container-box-item-base {
+    padding: 0.3rem .8rem;
+}
+
+.container-box-item {
+    @extend .container-box-item-base;
+    &-bottom {
+        @extend .container-box-item-base;
+        border-bottom: $default-border;
+    }
+
+    &-top {
+        @extend .container-box-item-base;
+        border-top: $default-border;
+    }
+
+    &-input {
+        padding-right: 0;
+        input, textarea {
+            width: 100%;
+            color: $blue-green;
+            font-size: $mid-font-size;
+            border: none;
+            box-shadow: none;
+            outline: none;
+
+            &:focus {
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+        textarea {
+            margin: -0.3rem -1.5rem -0.7rem 0;
+        }
+    }
+}
+
+/* body container */
+#bodyContainer {
+    margin-top: 1.5rem;
+}
+
+/* p 提示 */
+.one-line-tip-base {
+    font-size: $mid-font-size;
+    color: black;
+}
+.one-line-tip {
+    @extend .one-line-tip-base;
+    &-p {
+        @extend .one-line-tip-base;
+        display: inline-block;
+        margin: 0;
+    }
+}
+
+/* button */
+.my-button {
+    color: $teal;
+    font-size: $mid-font-size;
+    padding: .2rem .3rem;
+
+    &-confirm {
+        &:hover {
+            background-color: $a-background-color-hover;
+        }
+    }
+
+    &-cancel {
+        &:hover {
+            background-color: $a-background-color-hover;
+        }
+    }
+
+    &:visited {
+        color: $teal;
+    }
 }

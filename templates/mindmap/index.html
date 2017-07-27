@@ -1,11 +1,31 @@
-{% extends "includes/base.html" %}
+{% extends "mindmap/includes/base.html" %}
 {% load staticfiles %}
 
 {# 设置标题 #}
 {% block title %}{{ title }}{% endblock %}
 
+{# 自定义css #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'mindmap/css/index.css' %}">
+{% endblock %}
+
 {# 设置body #}
 {% block body %}
-    body
+    <div id="bodyContainer" class="container">
+        <div id="midContainer" class="col-lg-8 offset-lg-2">
+            <div class="container-box">
+                <div id="category">
+                    <a class="my-link-tag" href="#">历史</a>
+                    <a class="my-link-tag" href="#">考研</a>
+                    <a class="my-link-tag" href="#">数学</a>
+                </div>
+                <div id="sortBy">
+                    <a class="my-link-tag" href="#">综合</a>
+                    <a class="my-link-tag" href="#">最新</a>
+                    <a class="my-link-tag" href="#">最热</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
