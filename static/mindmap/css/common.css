@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/* a 标签相关颜色 */
+body {
+  background-color: #f5f8fa; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+  a:visited {
+    text-decoration: none; }
+  a:link {
+    text-decoration: none; }
+
+/* 导航栏 */
+#navbar {
+  background-color: #fff; }
+  #navbar a {
+    color: #66757f; }
+  #navbar #navbarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  #navbar #brand {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    #navbar #brand img {
+      height: 2.5rem; }
+  #navbar #linkList {
+    display: flex;
+    align-items: center; }
+  #navbar .my-nav-link {
+    margin-left: 0.8rem; }
+    #navbar .my-nav-link:hover {
+      color: #aaa; }
+
+.nav-shadow {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+
+.container-box {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.15rem;
+  background-color: white;
+  padding: 0.3rem; }
+
+/*# sourceMappingURL=common.css.map */

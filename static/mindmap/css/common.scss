@@ -1,0 +1,63 @@
+@import "-colors";
+@import "-theme";
+@import "-mixin";
+
+body {
+    background-color: $body-background-color;
+}
+
+a {
+    text-decoration: none;
+    &:hover {text-decoration: none;}
+    &:visited {text-decoration: none;}
+    &:link {text-decoration: none;}
+}
+
+/* 导航栏 */
+#navbar {
+    background-color: $navbar-background-color;
+    a {
+        color: $default-font-color;
+    }
+
+    #navbarContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            height: 2.5rem;
+        }
+    }
+
+    #linkList {
+        display: flex;
+        align-items: center;
+    }
+
+    .my-nav-link {
+        margin-left: 0.8rem;
+
+        &:hover {
+            color: $a-color-hover;
+        }
+    }
+}
+
+.nav-shadow {
+    border-top: $default-border;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container-box {
+    border: $default-border;
+    border-radius: 0.15rem;
+    background-color: white;
+    padding: 0.3rem;
+}
