@@ -14,7 +14,7 @@
     <div id="bodyContainer" class="container">
         <div id="midContainer" class="col-lg-8 offset-lg-2">
             <div class="container-box">
-                <form>
+                <form id="newMindForm">
                     {% csrf_token %}
                     <div class="container-box-item-bottom">
                         <p class="one-line-tip-p">发布主题</p>
@@ -72,14 +72,34 @@
                                 <option value="audi">Audi</option>
                             </select>
                         </label>
+                        <label class="no-padding-margin">
+                            <select style="height: 1.5rem; font-size: 0.8rem;">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">标签 (可选, 多个标签逗号分割)</p>
+                    </div>
+                    <div class="container-box-item-bottom container-box-item-input">
+                        <input placeholder="输入标签" name="tags"/>
                     </div>
 
                     <div class="container-box-item">
-                        <a href="#" class="my-button my-button-confirm">发布</a>
+                        <a id="submitBtn" href="javascript: void(0);" class="my-button my-button-confirm">发布</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}   {# 加载父block内容 #}
+    <script src="{% static 'mindmap/js/new-mind.js' %}"></script>
 {% endblock %}
 

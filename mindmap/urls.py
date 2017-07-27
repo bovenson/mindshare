@@ -4,7 +4,8 @@ from mindmap.views import views_common, views_index, views_mind
 
 urlpatterns = [
     url(r'^$', views_index.index, name='index'),
-    url(r'new-mind', views_mind.mind_new, name='new-mind'),
+    url(r'new-mind-page/?', views_mind.mind_new, name='new-mind-page'),
+    url(r'new-mind/?', views_mind.process_new_mind, name='new-mind'),
 ]
 
 urlpatterns += [
