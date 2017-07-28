@@ -1,0 +1,39 @@
+{% extends "mindmap/includes/base.html" %}
+{% load staticfiles %}
+
+{# 设置标题 #}
+{% block title %}{{ title }}{% endblock %}
+
+{# 自定义css #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'mindmap/css/mind-detail.css' %}">
+{% endblock %}
+
+{# 设置body #}
+{% block body %}
+    <div id="bodyContainer" class="container">
+        <div id="midContainer" class="col-lg-8 offset-lg-2">
+            <div class="container-box">
+                <div id="mindTopContent" class="container-box-item container-box-item-bottom">
+                    <h4 class="my-title">{{ mindmap.title }}</h4>
+                    {% include 'mindmap/includes/_mind_info_panel.html' %}
+                    <div class="info-panel" style="margin-top: .5rem;">
+                        {% for tag in mindmap.tags.all %}
+                            <a href="#" class="a-tag-light mr-1">{{ tag.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="mindMidContent" class="container-box-item container-box-item-bottom">
+                    <p class="no-padding-margin">{{ mindmap.description }}</p>
+                </div>
+                <div id="mindImgContent" class="container-box-item container-box-item-bottom">
+                    <img class="my-img" src="{{ mindmap.img.url }}" />
+                </div>
+                <div id="mindFooterContent" class="container-box-item container-box-item-bk-color">
+                    <span>Footer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

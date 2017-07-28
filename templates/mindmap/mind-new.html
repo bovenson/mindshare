@@ -16,77 +16,102 @@
             <div class="container-box">
                 <form id="newMindForm">
                     {% csrf_token %}
-                    <div class="container-box-item-bottom">
+                    <div class="container-box-item container-box-item-bottom">
                         <p class="one-line-tip-p">发布主题</p>
                     </div>
 
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">标题</p>
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">
+                            <span>标题</span>
+                            <span class="error-tip" id="titleTip"></span>
+                        </p>
                     </div>
-                    <div class="container-box-item-bottom container-box-item-input">
+                    <div class="container-box-item container-box-item-bottom container-box-item-input">
                         <input placeholder="输入标题" name="title"/>
                     </div>
 
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">描述</p>
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">
+                            <span>描述</span>
+                            <span class="error-tip" id="descriptionTip"></span>
+                        </p>
                     </div>
-                    <div class="container-box-item-bottom container-box-item-input">
+                    <div class="container-box-item container-box-item-bottom container-box-item-input">
                         <textarea class="no-padding-margin" rows="10" placeholder="输入描述" name="description"></textarea>
                     </div>
 
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">图片</p>
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">
+                            <span>图片 (此外, 您还可以</span>
+                            <a data-toggle="collapse" href="#collapseShare" aria-expanded="false" aria-controls="collapseShare">填写分享地址</a>
+                            <span> 或 </span>
+                            <a data-toggle="collapse" href="#collapseUploadMindFile" aria-expanded="false" aria-controls="collapseUploadMindFile"> 上传思维导图文件</a>
+                            <span>)</span>
+                            <span class="error-tip" id="imgTip"></span>
+                        </p>
                     </div>
-                    <div class="container-box-item-bottom container-box-item-input">
+                    <div class="container-box-item container-box-item-bottom container-box-item-input">
                         <label class="no-padding-margin">
-                          <input type="file" name="pic" placeholder="选择图片">
+                          <input type="file" name="img" placeholder="选择图片">
                         </label>
                     </div>
 
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">脑图分享地址(可选)</p>
-                    </div>
-                    <div class="container-box-item-bottom container-box-item-input">
-                        <input placeholder="输入脑图分享地址" name="share-url"/>
-                    </div>
-
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">思维导图文件(可选)</p>
-                    </div>
-                    <div class="container-box-item-bottom">
-                        <label class="no-padding-margin container-box-item-input">
-                          <input type="file" name="file" placeholder="选择图片">
-                        </label>
+                    <div class="collapse"  id="collapseShare">
+                        <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                            <p class="one-line-tip-p">
+                                <span>脑图分享地址(可选)</span>
+                                <span class="error-tip" id="shareTip"></span>
+                            </p>
+                        </div>
+                        <div class="container-box-item container-box-item-bottom container-box-item-input">
+                            <input placeholder="输入脑图分享地址(如: 百度脑图分享链接)" name="share"/>
+                        </div>
                     </div>
 
-
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">选择分类</p>
+                    <div class="collapse"  id="collapseUploadMindFile">
+                        <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                            <p class="one-line-tip-p">
+                                <span>思维导图文件(可选)</span>
+                                <span class="error-tip" id="mindmapTip"></span>
+                            </p>
+                        </div>
+                        <div class="container-box-item container-box-item-bottom">
+                            <label class="no-padding-margin container-box-item-input">
+                              <input type="file" name="mindmap" placeholder="选择文件">
+                            </label>
+                        </div>
                     </div>
-                    <div class="container-box-item-bottom">
+
+
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">
+                            <span>选择分类 (此外, 您还可以 </span>
+                            <a data-toggle="collapse" href="#collapseInputTags" aria-expanded="false" aria-controls="collapseInputTags">添加标签</a>
+                            <span>)</span>
+                            <span class="error-tip" id="categoryTip"></span>
+                        </p>
+                    </div>
+                    <div class="container-box-item container-box-item-bottom">
                         <label class="no-padding-margin">
-                            <select style="height: 1.5rem; font-size: 0.8rem;">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
+                            <select id="categoryFirst" name="categoryFirst" style="height: 1.5rem; font-size: 0.8rem;">
+                                {% for category in category_first %}
+                                    <option value="{{ category.id }}">{{ category.title }}</option>
+                                {% endfor %}
                             </select>
                         </label>
                         <label class="no-padding-margin">
-                            <select style="height: 1.5rem; font-size: 0.8rem;">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
+                            <select id="categorySecond" name="category" style="height: 1.5rem; font-size: 0.8rem;">
                             </select>
                         </label>
                     </div>
 
-                    <div class="container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">标签 (可选, 多个标签逗号分割)</p>
-                    </div>
-                    <div class="container-box-item-bottom container-box-item-input">
-                        <input placeholder="输入标签" name="tags"/>
+                    <div class="collapse" id="collapseInputTags">
+                        <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                            <p class="one-line-tip-p">标签 (可选, 多个标签逗号分割)</p>
+                        </div>
+                        <div class="container-box-item container-box-item-bottom container-box-item-input">
+                            <input placeholder="输入标签" name="tags"/>
+                        </div>
                     </div>
 
                     <div class="container-box-item">

@@ -14,3 +14,12 @@ from django.shortcuts import render
 def return_404_page(request, *args, **kwargs):
     return render(request, 'mindmap/404page.html')
 
+
+def json_res(res=False, msg=None):
+    res_dict = {
+        'res': 'success' if res else 'error',
+        'msg': '操作成功' if res else '未知错误',
+    }
+    if msg:
+        res_dict['msg'] = msg
+    return res_dict

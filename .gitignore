@@ -1,3 +1,38 @@
+# media文件夹
+media
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+
+# 豆瓣账户
+douban_account.ini
+
+# pycharm 工程文件
+book/__pycache__/
+book/migrations/__pycache__/
+book/templatetags/__pycache__/
+book/view/__pycache__/
+cloudlibrary/__pycache__/
+spider/__pycache__/
+spider/douban/douban/__pycache__/
+spider/douban/douban/spiders/__pycache__/
+spider/migrations/__pycache__/
+
+# scrapy
+httpcache
+
+# log
+*.log
+*.tmp
+log/*
+
+spider/douban/api/sys
+spider/douban/api/threading
+
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Windows template
 # Windows thumbnail cache files
@@ -22,11 +57,9 @@ $RECYCLE.BIN/
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
 *$py.class
 
 # C extensions
-*.so
 
 # Distribution / packaging
 .Python
@@ -45,7 +78,6 @@ var/
 wheels/
 *.egg-info/
 .installed.cfg
-*.egg
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -73,7 +105,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 
 # Flask stuff:
@@ -122,14 +153,5 @@ ENV/
 *.iml
 out
 gen
-将删除 .gitignore
-将删除 .idea/
-将删除 db.sqlite3
-将删除 mindmap/__pycache__/
-将删除 mindmap/migrations/__pycache__/
-将删除 mindmap/static/
-将删除 mindmap/templates/
-将删除 mindmap/urls.py
-将删除 mindshare/__pycache__/urls.cpython-35.pyc
-将删除 mindshare/__pycache__/wsgi.cpython-35.pyc
-将删除 templates/
+
+static/mindmap/.sass-cache

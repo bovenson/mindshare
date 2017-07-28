@@ -1,0 +1,21 @@
+{# mind info panel #}
+
+<div class="info-panel">
+    <a class="info-panel-item a-tag-light" href="javascript: void(0);">{{ mindmap.category.title }}</a>
+    <span class="info-panel-item">•</span>
+    <a class="info-panel-item" href="javascript: void(0);" style="font-weight: 600;">{{ mindmap.author.username}}</a>
+    <span class="info-panel-item">•</span>
+    <span class="info-panel-item">{{ mindmap.create_date|date:'H:i:s Y-m-d' }}</span>
+    {% if mindmap.share %}
+        <span class="info-panel-item">•</span>
+        <a href="{{ mindmap.share }}" target="_blank" class="info-panel-item"><i class="fa fa-share-alt color-mid-grey" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {# 下载 #}
+    <span class="info-panel-item">•</span>
+    <a href="{{ mindmap.img.url }}" download="" class="info-panel-item"><i class="fa fa-picture-o color-mid-grey" aria-hidden="true"></i></a>
+    {% if mindmap.mindmap %}
+        <span class="info-panel-item">•</span>
+        <a href="{{ mindmap.mindmap.url }}" download="" class="info-panel-item"><i class="fa fa-download color-mid-grey" style="margin-top: .05rem;" aria-hidden="true"></i></a>
+    {% endif %}
+</div>

@@ -7,6 +7,7 @@
 
 #sortBy {
   padding: .2rem .8rem;
-  background-color: #f9f9f9; }
+  background-color: #f9f9f9;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 /*# sourceMappingURL=index.css.map */

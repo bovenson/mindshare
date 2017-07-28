@@ -1,0 +1,6 @@
+{# 首页列表项 #}
+
+<div class="container-box-item container-box-item-bottom">
+    <a class="my-title my-title-a" href="{% url 'mindmap:show-mind' mindmap.id %}">{{ mindmap.title }}</a>
+    {% include 'mindmap/includes/_mind_info_panel.html' %}
+</div>

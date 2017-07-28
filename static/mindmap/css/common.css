@@ -40,6 +40,7 @@ body {
 
 /* a 标签 */
 a {
+  color: #607D8B;
   text-decoration: none; }
   a:hover {
     text-decoration: none; }
@@ -55,42 +56,51 @@ a {
   .my-link-tag:hover {
     background-color: #f9f9f9; }
 
+.a-tag-light {
+  color: #9E9E9E;
+  font-size: 0.5rem;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
+  background-color: #F5F5F5; }
+  .a-tag-light:hover {
+    background-color: #E0E0E0; }
+
 /* container box */
 .container-box {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.15rem;
   background-color: white; }
 
-.container-box-item-base, .container-box-item, .container-box-item-bottom, .container-box-item-top {
+.container-box-item {
   padding: 0.3rem .8rem; }
-
-.container-box-item-bk-color {
-  background-color: #f9f9f9; }
-.container-box-item-bottom {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
-.container-box-item-top {
-  border-top: 1px solid rgba(0, 0, 0, 0.15); }
-.container-box-item-input {
-  padding-right: 0; }
-  .container-box-item-input input, .container-box-item-input textarea {
-    width: 100%;
-    color: #607D8B;
-    font-size: 0.6rem;
-    border: none;
-    box-shadow: none;
-    outline: none; }
-    .container-box-item-input input:focus, .container-box-item-input textarea:focus {
+  .container-box-item-bk-color {
+    background-color: #f9f9f9; }
+  .container-box-item-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+  .container-box-item-top {
+    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+  .container-box-item-input {
+    padding-right: 0; }
+    .container-box-item-input input, .container-box-item-input textarea {
+      width: 100%;
+      color: #607D8B;
+      font-size: 0.6rem;
       border: none;
       box-shadow: none;
       outline: none; }
-  .container-box-item-input textarea {
-    margin: -0.3rem -1.5rem -0.7rem 0; }
+      .container-box-item-input input:focus, .container-box-item-input textarea:focus {
+        border: none;
+        box-shadow: none;
+        outline: none; }
+    .container-box-item-input textarea {
+      padding-top: 0.3rem;
+      margin: -0.3rem -1.5rem -0.7rem 0; }
 
 /* body container */
 #bodyContainer {
   margin-top: 1.5rem; }
 
-/* p 提示 */
+/* 字体样式 */
 .one-line-tip-base, .one-line-tip, .one-line-tip-p {
   font-size: 0.6rem;
   color: black; }
@@ -98,6 +108,20 @@ a {
 .one-line-tip-p {
   display: inline-block;
   margin: 0; }
+
+.error-tip {
+  color: #E91E63;
+  font-size: .4rem; }
+
+.my-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #66757f;
+  display: inline-block;
+  padding-left: .1rem;
+  margin-bottom: .25rem; }
+  .my-title-a:hover {
+    color: #009688; }
 
 /* button */
 .my-button {
@@ -112,5 +136,26 @@ a {
     color: #009688; }
 
 /* 文件选择器 */
+/* 布局 */
+.info-panel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.5rem;
+  color: #BDBDBD;
+  line-height: .7rem; }
+  .info-panel-item {
+    display: inline-block;
+    margin-right: .3rem; }
+
+.my-img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%; }
+
+/* color */
+.color-mid-grey {
+  color: #BDBDBD; }
 
 /*# sourceMappingURL=common.css.map */
