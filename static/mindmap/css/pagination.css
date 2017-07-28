@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* a 标签相关颜色 */
+/* 颜色 */
+/* material design color */
+.page-panel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #BDBDBD;
+  font-size: 0.9rem; }
+  .page-panel-item {
+    padding: 0 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-right: .3rem;
+    background-color: #f9f9f9; }
+
+/*# sourceMappingURL=pagination.css.map */

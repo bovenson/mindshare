@@ -50,3 +50,11 @@ class MindMapForm(forms.ModelForm):
             if len(_res) > 0:
                 raise forms.ValidationError(_res)
         return data
+
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email', 'nickname']

@@ -31,7 +31,9 @@ def process_new_mind(request):
         form = MindMapForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             # 验证成功
-            instance = form.save()
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
             # 处理信息
             try:
                 tags_str = request.POST.get('tags')

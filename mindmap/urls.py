@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.conf.urls import url
-from mindmap.views import views_common, views_index, views_mind, views_category
+from mindmap.views import views_common, views_index, views_mind, views_category, views_user
 
 
 urlpatterns = [
@@ -17,7 +17,17 @@ urlpatterns += [
     url(r'category/show/?', views_category.show_category, name='category-show'),
 ]
 
+# 用户相关url
+urlpatterns += [
+    # 用户书单列表
+    url(r'^user/register/?$', views_user.user_register, name='register'),
+    url(r'^user/login/?$', views_user.user_login, name='login'),
+    url(r'^user/logout/?$', views_user.user_logout, name='logout'),
+]
+
+# 最后
 urlpatterns += [
     # 如果都没有匹配, 返回404页面
     url(r'', views_common.return_404_page, name='404-page'),
 ]
+

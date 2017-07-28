@@ -9,8 +9,18 @@
         </div>
         <div id="linkList">
             <a class="my-nav-link" href="{% url 'mindmap:index' %}">首页</a>
-            <a class="my-nav-link" href="{% url 'mindmap:new-mind-page' %}">发布</a>
+            {% if request.user.id %}
+                {# 引入用户信息弹出框 #}
+                {% include 'mindmap/includes/dialog/_popover_user.html' %}
+                <a class="my-nav-link" href="{% url 'mindmap:new-mind-page' %}">发布</a>
+                <a id="usernameElement" class="my-nav-link" href="javascript: void(0);">{{ request.user.nickname }}</a>
+            {% else %}
+                <a id="btn-login" class="my-nav-link" href="javascript: void(0);">登录</a>
+            {% endif %}
         </div>
     </div>
 </nav>
 <div class="nav-shadow"></div>
+
+{# 引入登录/注册模态框 #}
+{% include 'mindmap/includes/_login_register.html' %}

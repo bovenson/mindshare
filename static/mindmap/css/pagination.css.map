@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAKA,cAAc;AAId,QAAQ;AAIR,2BAA2B;ACT3B,WAAY;EACR,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,UAAU;EAC3B,WAAW,EAAE,MAAM;EACnB,KAAK,EDYE,OAAO;ECXd,SAAS,EAAE,MAAM;EAEjB,gBAAO;IACH,OAAO,EAAE,QAAQ;IACjB,MAAM,ECXS,4BAA6B;IDY5C,OAAO,EAAE,YAAY;IACrB,YAAY,EAAE,KAAK;IACnB,gBAAgB,EDTG,OAAO",
+"sources": ["-colors.scss","pagination.scss","-theme.scss"],
+"names": [],
+"file": "pagination.css"
+}

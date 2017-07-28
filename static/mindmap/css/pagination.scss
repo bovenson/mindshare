@@ -1,0 +1,19 @@
+@import "-colors";
+@import "-theme";
+@import "-mixin";
+
+.page-panel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $mid-grey;
+    font-size: 0.9rem;
+
+    &-item {
+        padding: 0 0.4rem;
+        border: $default-border-light;
+        display: inline-block;
+        margin-right: .3rem;
+        background-color: $a-background-color-hover;
+    }
+}

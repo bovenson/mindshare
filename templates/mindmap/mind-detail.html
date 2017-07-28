@@ -17,11 +17,14 @@
                 <div id="mindTopContent" class="container-box-item container-box-item-bottom">
                     <h4 class="my-title">{{ mindmap.title }}</h4>
                     {% include 'mindmap/includes/_mind_info_panel.html' %}
-                    <div class="info-panel" style="margin-top: .5rem;">
-                        {% for tag in mindmap.tags.all %}
-                            <a href="#" class="a-tag-light mr-1">{{ tag.title }}</a>
-                        {% endfor %}
-                    </div>
+
+                    {% if mindmap.tags.all|length > 0 %}
+                        <div class="info-panel" style="margin-top: .5rem;">
+                            {% for tag in mindmap.tags.all %}
+                                <a href="#" class="a-tag-light mr-1">{{ tag.title }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 <div id="mindMidContent" class="container-box-item container-box-item-bottom">
                     <p class="no-padding-margin">{{ mindmap.description }}</p>

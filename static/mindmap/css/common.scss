@@ -89,42 +89,46 @@ a {
     border: $default-border;
     border-radius: 0.15rem;
     background-color: white;
-}
 
-.container-box-item {
-    padding: 0.3rem .8rem;
+    &-item {
+        padding: .3rem .8rem;
 
-    &-bk-color {
-        background-color: $a-background-color-hover;
-    }
+        &-bk-color {
+            background-color: $a-background-color-hover;
+        }
 
-    &-bottom {
-        border-bottom: $default-border;
-    }
+        &-bottom {
+            border-bottom: $default-border;
+        }
 
-    &-top {
-        border-top: $default-border;
-    }
+        &-top {
+            border-top: $default-border;
+        }
 
-    &-input {
-        padding-right: 0;
-        input, textarea {
-            width: 100%;
-            color: $blue-green;
-            font-size: $mid-font-size;
-            border: none;
-            box-shadow: none;
-            outline: none;
+        &-padding {
+            padding: .6rem .8rem;
+        }
 
-            &:focus {
+        &-input {
+            padding-right: 0;
+            input, textarea {
+                width: 100%;
+                color: $blue-green;
+                font-size: $mid-font-size;
                 border: none;
                 box-shadow: none;
                 outline: none;
+
+                &:focus {
+                    border: none;
+                    box-shadow: none;
+                    outline: none;
+                }
             }
-        }
-        textarea {
-            padding-top: 0.3rem;
-            margin: -0.3rem -1.5rem -0.7rem 0;
+            textarea {
+                padding-top: 0.3rem;
+                margin: -0.3rem -1.5rem -0.7rem 0;
+            }
         }
     }
 }
