@@ -15,6 +15,6 @@ from mindmap.models import Category
 
 
 @csrf_exempt
-def show_category():
+def show_category(request):
     """获取所有分类"""
     return JsonResponse({'categorys': [v.convert_to_dict() for v in Category.objects.all()]})

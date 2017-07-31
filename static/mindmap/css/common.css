@@ -6,9 +6,9 @@ body {
   background-color: #f5f8fa; }
 
 #footer {
-  background-color: white;
+  background-color: transparent;
   text-align: center;
-  margin-top: 2rem; }
+  margin-top: 3rem; }
 
 /* common */
 .no-padding-margin, #footer p {
@@ -129,8 +129,8 @@ a {
   font-weight: 500;
   color: #66757f;
   display: inline-block;
-  padding-left: .1rem;
-  margin-bottom: 0.25rem !important; }
+  padding-left: .05rem;
+  margin-bottom: .25rem; }
   .my-title-a:hover {
     color: #009688; }
 

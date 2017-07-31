@@ -47,7 +47,7 @@ def user_register(request):
             res["res"] = "success"
             res["msg"] = "注册成功"
         else:
-            print(form.errors)
+            # print(form.errors)
             _msg = ""
             for k, v in form.errors.items():
                 _msg += v + ' '
@@ -120,7 +120,7 @@ def user_profile(request):
 @login_required
 def user_profile_update(request):
     try:
-        print(request.POST)
+        # print(request.POST)
         form = UserUpdateForm(request.POST or None, instance=request.user)
         if form.is_valid():
             form.save()

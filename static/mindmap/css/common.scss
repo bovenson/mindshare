@@ -7,9 +7,9 @@ body {
 }
 
 #footer {
-    background-color: white;
+    background-color: transparent;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
 
     p {
         @extend .no-padding-margin;
@@ -179,8 +179,8 @@ a {
     font-weight: 500;
     color: $default-font-color;
     display: inline-block;
-    padding-left: .1rem;
-    margin-bottom: .25rem ! important;
+    padding-left: .05rem;
+    margin-bottom: .25rem;
 
     &-a {
         &:hover {

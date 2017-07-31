@@ -31,7 +31,9 @@
 
     {# body #}
     {% block body %}{% endblock %}
-    {% block footer %}{% endblock %}
+    {% block footer %}
+        <div id="footer"></div>
+    {% endblock %}
 
     {# 自定义js #}
     {% block js %}
