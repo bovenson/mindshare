@@ -1,0 +1,76 @@
+{% extends "mindmap/includes/base.html" %}
+{% load staticfiles %}
+
+{# 设置标题 #}
+{% block title %}{{ title }}{% endblock %}
+
+{# 自定义css #}
+{% block css %}
+{% endblock %}
+
+{# 设置body #}
+{% block body %}
+    <div id="bodyContainer" class="container">
+        <div id="midContainer" class="col-lg-8 offset-lg-2">
+            <div class="container-box">
+                <form id="userProfileForm">
+                    {% csrf_token %}
+                    <div class="container-box-item container-box-item-bottom">
+                        <p class="one-line-tip-p">修改信息</p>
+                    </div>
+
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">
+                            <span>修改昵称</span>
+                            <span class="error-tip" id="nicknameTip"></span>
+                        </p>
+                    </div>
+                    <div class="container-box-item container-box-item-bottom container-box-item-input">
+                        <input placeholder="输入昵称" value="{{ request.user.nickname }}" name="nickname"/>
+                    </div>
+
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-p">
+                            <a data-toggle="collapse" href="#collapseChangePassword" aria-expanded="false" aria-controls="collapseChangePassword">点击修改密码</a>
+                            <span class="error-tip" id="passwordTip"></span>
+                            <span class="error-tip" id="new_passwordTip"></span>
+                        </p>
+                    </div>
+
+                    <div class="collapse" id="collapseChangePassword">
+                        <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                            <p class="one-line-tip-p">原密码</p>
+                        </div>
+                        <div class="container-box-item container-box-item-bottom container-box-item-input">
+                            <input type="password" placeholder="输入原密码" name="password"/>
+                        </div>
+
+                        <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                            <p class="one-line-tip-p">新密码</p>
+                        </div>
+                        <div class="container-box-item container-box-item-bottom container-box-item-input">
+                            <input type="password" placeholder="输入新密码" name="new_password"/>
+                        </div>
+
+                        <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                            <p class="one-line-tip-p">重复新密码</p>
+                        </div>
+                        <div class="container-box-item container-box-item-bottom container-box-item-input">
+                            <input type="password" placeholder="再次输入新密码" name="new_password_repeat"/>
+                        </div>
+                    </div>
+
+                    <div class="container-box-item">
+                        <a id="updateProfileSubmitBtn" href="javascript: void(0);" class="my-button my-button-confirm">确定</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}   {# 加载父block内容 #}
+    <script src="{% static 'mindmap/js/user-profile.js' %}"></script>
+{% endblock %}
+

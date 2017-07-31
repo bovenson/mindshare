@@ -17,7 +17,7 @@ function showUserPopover(event) {
 // 监听页面时间
 document.onmousedown = function (event) {
     // 如果点击位置在弹出框内
-    console.log(event.srcElement);
+    // console.log(event.srcElement);
     if (isParent(userPopoverModalNode, event.srcElement)) {
     } else { // 否则
         userPopoverModal.css('visibility', 'hidden');
@@ -26,11 +26,14 @@ document.onmousedown = function (event) {
 
 // 判断ea是不是eb的父节点
 function isParent(ea, eb) {
-    while (eb.parentNode) {
-        eb = eb.parentNode;
-        if (ea === eb) {
-            return true;
+    if (eb) {
+        while (eb.parentNode) {
+            eb = eb.parentNode;
+            if (ea === eb) {
+                return true;
+            }
         }
+        return false;
     }
     return false;
 }

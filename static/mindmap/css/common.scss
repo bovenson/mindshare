@@ -6,6 +6,16 @@ body {
     background-color: $body-background-color;
 }
 
+#footer {
+    background-color: white;
+    text-align: center;
+    margin-top: 2rem;
+
+    p {
+        @extend .no-padding-margin;
+    }
+}
+
 /* common */
 .no-padding-margin {
     padding: 0;
@@ -165,11 +175,12 @@ a {
 
 .my-title {
     font-size: 1.2rem;
+    line-height: 1.2rem;
     font-weight: 500;
     color: $default-font-color;
     display: inline-block;
     padding-left: .1rem;
-    margin-bottom: .25rem;
+    margin-bottom: .25rem ! important;
 
     &-a {
         &:hover {

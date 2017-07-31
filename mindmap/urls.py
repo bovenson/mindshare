@@ -25,6 +25,10 @@ urlpatterns += [
     url(r'^user/register/?$', views_user.user_register, name='register'),
     url(r'^user/login/?$', views_user.user_login, name='login'),
     url(r'^user/logout/?$', views_user.user_logout, name='logout'),
+    url(r'^user/profile/?$', views_user.user_profile, name='user-profile'),
+    url(r'^user/profile/update/?$', views_user.user_profile_update, name='user-profile-update'),
+    url(r'^user/page/(?P<page>\d+)/?$', views_user.user_page, name='user-page'),
+    url(r'^user/(?P<uid>\d+)/page/(?P<page>\d+)/?$', views_user.user_page, name='user-page-with-uid')
 ]
 
 # 最后

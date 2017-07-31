@@ -10,6 +10,7 @@ DESC:
 """
 import re
 
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 
@@ -26,6 +27,7 @@ def mind_new(request):
     return render(request, 'mindmap/mind-new.html', context=context)
 
 
+@login_required
 def process_new_mind(request):
     try:
         form = MindMapForm(request.POST or None, request.FILES or None)
@@ -36,6 +38,7 @@ def process_new_mind(request):
             instance.save()
             # 处理信息
             try:
+                # 添加标签
                 tags_str = request.POST.get('tags')
                 if tags_str:
                     tags = re.split(r'[,，]', tags_str)

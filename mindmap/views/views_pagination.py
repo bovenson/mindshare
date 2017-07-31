@@ -15,7 +15,7 @@ from django.core.paginator import Paginator
 from mindshare.settings import COUNT_PER_PAGE
 
 
-class PageItem():
+class PageItem:
     def __init__(self, url='javascript: void(0)', number=1, text=None, active=True):
         self.url = url
         self.number = number
@@ -23,7 +23,7 @@ class PageItem():
         self.active = active
 
 
-class PageInstance():
+class PageInstance:
     def __init__(self, total_page_number, cur_page_number, cur_page_items, url_generator=None, **kwargs):
         # 所有分页
         self.total_page_number = total_page_number
@@ -74,4 +74,3 @@ def get_pages(query_set, cur_page=1, count_per_page=COUNT_PER_PAGE, url_generato
         print(e)
         traceback.print_exc()
         return PageInstance(0, 0, None)
-

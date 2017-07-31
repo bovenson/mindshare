@@ -11,18 +11,11 @@ DESC:
 import traceback
 
 from django.shortcuts import render
-from django.urls import reverse
 
 from mindmap.models import Category, MindMap
+from mindmap.views.url_generator import index_url_generator
 from mindmap.views.views_common import return_404_page
 from mindmap.views.views_pagination import get_pages
-
-
-def index_url_generator(page=1, category=None, **kwargs):
-    if category is not None:
-        return reverse('mindmap:index-with-category', args=(category, page))
-    else:
-        return reverse('mindmap:index-without-category', args=(page, ))
 
 
 def index(request, category=None, page=1):

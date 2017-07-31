@@ -8,13 +8,10 @@ FILE: views_common.py
 DATE: 17-7-27 下午12:29
 DESC: 
 """
-from django.core.paginator import Paginator
 from django.shortcuts import render
 
-from mindshare.settings import COUNT_PER_PAGE
 
-
-def return_404_page(request, *args, **kwargs):
+def return_404_page(request):
     return render(request, 'mindmap/404page.html')
 
 

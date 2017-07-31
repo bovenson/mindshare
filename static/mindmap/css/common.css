@@ -5,8 +5,13 @@
 body {
   background-color: #f5f8fa; }
 
+#footer {
+  background-color: white;
+  text-align: center;
+  margin-top: 2rem; }
+
 /* common */
-.no-padding-margin {
+.no-padding-margin, #footer p {
   padding: 0;
   margin: 0; }
 
@@ -120,11 +125,12 @@ a {
 
 .my-title {
   font-size: 1.2rem;
+  line-height: 1.2rem;
   font-weight: 500;
   color: #66757f;
   display: inline-block;
   padding-left: .1rem;
-  margin-bottom: .25rem; }
+  margin-bottom: 0.25rem !important; }
   .my-title-a:hover {
     color: #009688; }
 

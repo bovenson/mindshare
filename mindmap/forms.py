@@ -8,6 +8,7 @@ FILE: forms.py
 DATE: 17-7-28 上午9:48
 DESC: 
 """
+from django.contrib.auth import authenticate
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from mindmap.models import *
@@ -53,8 +54,77 @@ class MindMapForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-
     class Meta:
         model = User
         fields = ['username', 'password', 'email', 'nickname']
+
+    def clean(self):
+        cleaned_data = super(UserForm, self).clean()
+        password = cleaned_data.get('password')
+        new_password = cleaned_data.get('new_password')
+        new_password_repeat = cleaned_data.get('new_password_repeat')
+
+        if password and len(password) > 0:
+            if new_password and len(new_password) > 0:
+                if new_password != new_password_repeat:
+                    self.add_error('password', '两次输入的新密码不一致')
+                elif len(new_password) < 5:
+                    self.add_error('password', '密码不要小于5位')
+
+    def clean_nickname(self):
+        data = self.cleaned_data['nickname']
+        if 4 < len(data) <= 35:
+            return data
+        else:
+            raise forms.ValidationError('昵称/邮箱 长度为5-35位')
+
+
+class UserUpdateForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput, required=False)
+    new_password = forms.CharField(widget=forms.PasswordInput, required=False)
+    new_password_repeat = forms.CharField(widget=forms.PasswordInput, required=False)
+    username = forms.CharField(required=False)
+
+    class Meta:
+        model = User
+        fields = ['nickname']
+
+    def clean(self):
+        cleaned_data = super(UserUpdateForm, self).clean()
+        password = cleaned_data.get('password')
+        new_password = cleaned_data.get('new_password')
+        new_password_repeat = cleaned_data.get('new_password_repeat')
+
+        if password and len(password) > 0:
+            if new_password and len(new_password) > 0:
+                user = authenticate(username=self.instance.username, password=password)
+                if user is None:
+                    self.add_error('password', '密码输入错误')
+                if new_password != new_password_repeat:
+                    self.add_error('password', '两次输入的新密码不一致')
+                elif len(new_password) < 5:
+                    self.add_error('password', '密码不要小于5位')
+
+    def clean_nickname(self):
+        data = self.cleaned_data['nickname']
+        if 4 < len(data) <= 35:
+            return data
+        else:
+            raise forms.ValidationError('昵称/邮箱 长度为5-35位')
+
+    def save(self, commit=True):
+        # 重写save方法
+        instance = super(UserUpdateForm, self).save(commit=False)
+
+        # 修改密码
+        cleaned_data = super(UserUpdateForm, self).clean()
+        password = cleaned_data.get('password')
+        new_password = cleaned_data.get('new_password')
+        if len(password) > 0:
+            # 密码
+            if len(new_password) > 0:
+                instance.set_password(new_password)
+
+        if commit:
+            instance.save()
+        return instance

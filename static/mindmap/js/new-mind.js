@@ -7,8 +7,10 @@ var POST_NEW_MIND = {
             // 出错
             var msg = data['msg'];
             for (var i=0; i < msg.length; ++i) {
-                var errorMsg = msg[i][1].replace('.', '').replace('。', '');
-                $('#' + msg[i][0] + 'Tip').text(errorMsg);
+                if (msg[i][1]) {
+                    var errorMsg = msg[i][1].replace('.', '').replace('。', '');
+                    $('#' + msg[i][0] + 'Tip').text(errorMsg);
+                }
             }
         } else {
             location.href = '/';
