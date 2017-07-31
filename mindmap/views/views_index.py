@@ -43,6 +43,8 @@ def index(request, category=None, page=1):
                 category_first = cur_category
                 category_second = None
                 category_second_items = Category.objects.filter(parent=cur_category)
+        else:
+            category_second_items = Category.objects.all()[:18]
         context = {
             'title': 'MindShare',
             'category_first': category_first,
