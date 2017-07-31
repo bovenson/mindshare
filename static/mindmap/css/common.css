@@ -51,10 +51,14 @@ a {
 
 .my-link-tag {
   color: #66757f;
-  padding: .2rem;
-  font-size: .8rem; }
+  padding: .1rem .2rem;
+  font-size: .8rem;
+  border-radius: .2rem; }
   .my-link-tag:hover {
-    background-color: #f9f9f9; }
+    background-color: #E0E0E0; }
+  .my-link-tag-selected {
+    color: #009688;
+    background-color: #E0E0E0; }
 
 .a-tag-light {
   color: #9E9E9E;

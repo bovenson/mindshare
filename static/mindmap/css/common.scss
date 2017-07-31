@@ -66,10 +66,16 @@ a {
 
 .my-link-tag {
     color: $default-font-color;
-    padding: .2rem;
+    padding: .1rem .2rem;
     font-size: .8rem;
+    border-radius: .2rem;
     &:hover {
-        background-color: $a-background-color-hover;
+        background-color: $light-grey;
+    }
+
+    &-selected {
+        color: $teal;
+        background-color: $light-grey;
     }
 }
 

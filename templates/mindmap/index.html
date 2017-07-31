@@ -17,20 +17,38 @@
             <div class="container-box">
                 {# 分类 #}
                 <div id="category">
-                    <a class="my-link-tag" href="#">全部</a>
-                    {% for category in categoryFirst %}
-                        <a class="my-link-tag" href="#">{{ category.title }}</a>
+                    {% if not category_first %}
+                        <a class="my-link-tag my-link-tag-selected">全部</a>
+                    {% else %}
+                        <a class="my-link-tag" href="{% url 'mindmap:index-without-category' 1 %}">全部</a>
+                    {% endif %}
+                    {% for category in category_first_items %}
+                        {% if category_first == category %}
+                            <a class="my-link-tag my-link-tag-selected">{{ category.title }}</a>
+                        {% else %}
+                            <a class="my-link-tag" href="{% url 'mindmap:index-with-category' category.id 1 %}">{{ category.title }}</a>
+                        {% endif %}
                     {% endfor %}
                 </div>
                 {# 子分类及排序 #}
                 <div id="sortBy">
-                    <a class="my-link-tag" href="#">综合</a>
-                    <a class="my-link-tag" href="#">最新</a>
-                    <a class="my-link-tag" href="#">最热</a>
+                    {% if not category_second %}
+                        <a class="my-link-tag my-link-tag-selected">全部</a>
+                    {% else %}
+                        <a class="my-link-tag" href="{% url 'mindmap:index-without-category' 1 %}">全部</a>
+                    {% endif %}
+
+                    {% for category in category_second_items %}
+                        {% if category_second == category %}
+                            <a class="my-link-tag my-link-tag-selected">{{ category.title }}</a>
+                        {% else %}
+                            <a class="my-link-tag" href="{% url 'mindmap:index-with-category' category.id 1 %}">{{ category.title }}</a>
+                        {% endif %}
+                    {% endfor %}
                 </div>
 
                 {# 主题列表 #}
-                {% for mindmap in items %}
+                {% for mindmap in pages.cur_page_items %}
                     {% include 'mindmap/includes/_index_list_item.html' %}
                 {% endfor %}
 

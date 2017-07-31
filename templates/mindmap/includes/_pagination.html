@@ -1,13 +1,8 @@
 {# 分页 #}
 
 <div class="page-panel">
-    <a class="page-panel-item" href="/">1</a>
-    <a class="page-panel-item" href="/">2</a>
-    <a class="page-panel-item" href="/">3</a>
-    <a class="page-panel-item" href="/">4</a>
-    <a class="page-panel-item" href="/">5</a>
-    <a class="page-panel-item" href="/">6</a>
-    <a class="page-panel-item" href="/">7</a>
-    <a class="page-panel-item" >8</a>
-    <a class="page-panel-item" href="/">9</a>
+    {% for page in pages.page_items %}
+        <a class="page-panel-item" {% if page.active %}href="{{ page.url }}"{% endif %}>{{ page.text }}</a>
+{#        <a class="page-panel-item" {% if page.active %}href="{% url 'mindmap:index-with-category' category page.number %}"{% endif %}>{{ page.text }}</a>#}
+    {% endfor %}
 </div>

@@ -5,6 +5,8 @@ from mindmap.views import views_common, views_index, views_mind, views_category,
 
 urlpatterns = [
     url(r'^$', views_index.index, name='index'),
+    url(r'^page/(?P<page>\d+)?$', views_index.index, name='index-without-category'),
+    url(r'^category/(?P<category>\d+)/page/(?P<page>\d+)?$', views_index.index, name='index-with-category'),
 
     # Mind
     url(r'new-mind-page/?', views_mind.mind_new, name='new-mind-page'),

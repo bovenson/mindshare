@@ -129,3 +129,8 @@ STATIC_URL = '/static/'
 # 设置 media 路径
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
+
+
+# 个人 站点设置
+# 每页记录数
+COUNT_PER_PAGE = 10
