@@ -22,7 +22,7 @@ body {
     color: #66757f; }
   #navbar #navbarContainer {
     padding: 0 .6rem 0 .3rem;
-    max-width: 50rem;
+    max-width: 55rem;
     display: flex;
     align-items: center;
     justify-content: space-between; }

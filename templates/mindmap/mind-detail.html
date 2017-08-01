@@ -29,9 +29,11 @@
                 <div id="mindMidContent" class="container-box-item container-box-item-bottom">
                     <p class="no-padding-margin">{{ mindmap.description }}</p>
                 </div>
-                <div id="mindImgContent" class="container-box-item">
-                    <img class="my-img" src="{{ mindmap.img.url }}" />
-                </div>
+                {% if mindmap.img %}
+                    <div id="mindImgContent" class="container-box-item">
+                        <img class="my-img" src="{{ mindmap.img.url }}" />
+                    </div>
+                {% endif %}
                 <div id="mindFooterContent" class="container-box-item container-box-item-bk-color">
                     <div class="info-panel">
                         <a id="voteA" href="javascript: voteAction('{{ mindmap.id }}')"

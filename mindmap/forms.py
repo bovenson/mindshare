@@ -19,10 +19,11 @@ from mindshare.limites import UPLOAD_IMG_FORMAT, UPLOAD_IMG_MAX_SIZE, UPLOAD_MIN
 
 class MindMapForm(forms.ModelForm):
     categoryFirst = forms.IntegerField()
+    img = forms.ImageField(required=False)
 
     class Meta:
         model = MindMap
-        fields = ['title', 'description', 'img', 'mindmap', 'share', 'category']
+        fields = ['title', 'description', 'mindmap', 'share', 'category']
 
     def clean(self):
         cleaned_data = super(MindMapForm, self).clean()
@@ -41,8 +42,6 @@ class MindMapForm(forms.ModelForm):
             if data.size > UPLOAD_IMG_MAX_SIZE * 1024 * 1024:
                 _res += '图片过大, 请上传小于 %dMB 大小的图片.' % UPLOAD_IMG_MAX_SIZE
 
-        else:
-            _res += '您必须上传图片.'
         if len(_res) > 0:
             raise forms.ValidationError(_res)
         return data

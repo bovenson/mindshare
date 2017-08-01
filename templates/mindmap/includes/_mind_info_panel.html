@@ -12,8 +12,10 @@
     {% endif %}
 
     {# 下载 #}
-    <span class="info-panel-item">•</span>
-    <a href="{{ mindmap.img.url }}" download="" title="下载图片" class="info-panel-item"><i class="fa fa-picture-o color-mid-grey" aria-hidden="true"></i></a>
+    {% if mindmap.img %}
+        <span class="info-panel-item">•</span>
+        <a href="{{ mindmap.img.url }}" download="" title="下载图片" class="info-panel-item"><i class="fa fa-picture-o color-mid-grey" aria-hidden="true"></i></a>
+    {% endif %}
     {% if mindmap.mindmap %}
         <span class="info-panel-item">•</span>
         <a href="{{ mindmap.mindmap.url }}" download="" title="下载文件" class="info-panel-item"><i class="fa fa-download color-mid-grey" style="margin-top: .05rem;" aria-hidden="true"></i></a>

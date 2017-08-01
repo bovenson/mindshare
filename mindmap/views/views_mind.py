@@ -76,15 +76,17 @@ def show_mind_detail(request, tid=None):
             context = {}
             mindmap = MindMap.objects.filter(id=tid).first()
             if mindmap:
-                if MindMapVote.objects.filter(mindmap=mindmap, author=request.user).first() is None:
-                    context['voted'] = False
-                else:
+                if request.user.is_authenticated and \
+                        MindMapVote.objects.filter(mindmap=mindmap, author=request.user).exists():
                     context['voted'] = True
+                else:
+                    context['voted'] = False
                 context['title'] = mindmap.title
                 context['mindmap'] = mindmap
                 return render(request, 'mindmap/mind-detail.html', context=context)
     except Exception as e:
         print(e)
+        traceback.print_exc()
     return return_404_page(request)
 
 
