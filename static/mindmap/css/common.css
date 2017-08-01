@@ -22,7 +22,7 @@ body {
     color: #66757f; }
   #navbar #navbarContainer {
     padding: 0 .6rem 0 .3rem;
-    max-width: 52rem;
+    max-width: 50rem;
     display: flex;
     align-items: center;
     justify-content: space-between; }
@@ -70,8 +70,9 @@ a {
 .a-tag-light {
   color: #9E9E9E;
   font-size: 0.8rem;
-  padding: 0.1rem 0.2rem;
   border-radius: 0.2rem;
+  vertical-align: middle;
+  padding: .1rem .2rem;
   background-color: #F5F5F5; }
   .a-tag-light:hover {
     background-color: #E0E0E0; }
@@ -167,15 +168,18 @@ a {
 
 /* 布局 */
 .info-panel {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   font-size: 0.8rem;
   color: #BDBDBD;
-  line-height: .8rem; }
+  line-height: 1rem; }
   .info-panel-item {
-    display: inline-block;
-    margin-right: .3rem; }
+    font-size: .8rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1rem;
+    white-space: nowrap;
+    display: inline-block; }
+  .info-panel i:hover {
+    color: #009688; }
 
 .my-img {
   width: 100%;

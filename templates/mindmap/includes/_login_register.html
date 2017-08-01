@@ -10,14 +10,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="padding: 1rem 3rem 3rem 3rem;">
+            <div class="modal-body" style="padding: 0 1rem 1.2rem 1rem;">
                 <!-- 错误提示 -->
-                <div style="padding-left: 0.1rem; height: 25px;">
-                    <label id="lrModalErrorTipElement" style="color: red; font-size: 0.5rem;"></label>
+                <div style="padding-left: 0.1rem; height: 1.5rem;">
+                    <label id="lrModalErrorTipElement" style="color: red; font-size: .8rem;"></label>
                 </div>
                 <form>
                     {% csrf_token %}
-                    <div class="form-group" style="margin-bottom: 0.2px;">
+                    <div class="form-group" style="margin-bottom: .2rem;">
                         <input type="text" class="form-control" id="inputEmail" placeholder="邮箱">
                         <div class="clearfix" style="height: 1rem;"></div>
                         <input type="password" class="form-control" id="inputPassword" placeholder="密码">

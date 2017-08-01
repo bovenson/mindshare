@@ -1,8 +1,6 @@
 @charset "UTF-8";
 /* .register-btn: 注册按钮样式 */
 .register-btn a {
-  height: 37px;
-  width: 70px;
   border: 1px solid #339dc3;
   border-radius: 3px;
   color: #339dc3;

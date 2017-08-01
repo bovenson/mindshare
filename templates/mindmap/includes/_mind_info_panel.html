@@ -1,11 +1,11 @@
 {# mind info panel #}
 
 <div class="info-panel">
-    <a class="info-panel-item a-tag-light" href="javascript: void(0);">{{ mindmap.category.title }}</a>
+    <a class="info-panel-item a-tag-light" title="查看分类" href="javascript: void(0);">{{ mindmap.category.title }}</a>
     <span class="info-panel-item">•</span>
     <a class="info-panel-item" title="用户主页" href="{% url 'mindmap:user-page-with-uid' mindmap.author.id 1 %}" style="font-weight: 600;">{{ mindmap.author.nickname}}</a>
     <span class="info-panel-item">•</span>
-    <span class="info-panel-item">{{ mindmap.create_date|date:'H:i:s Y-m-d' }}</span>
+    <span class="info-panel-item">{{ mindmap.create_date|date:'H:i:s d-m-y' }}</span>
     {% if mindmap.share %}
         <span class="info-panel-item">•</span>
         <a href="{{ mindmap.share }}" title="查看分享" target="_blank" class="info-panel-item"><i class="fa fa-share-alt color-mid-grey" aria-hidden="true"></i></a>

@@ -19,7 +19,7 @@
                     {% include 'mindmap/includes/_mind_info_panel.html' %}
 
                     {% if mindmap.tags.all|length > 0 %}
-                        <div class="info-panel" style="margin-top: .5rem;">
+                        <div style="margin-top: .2rem;">
                             {% for tag in mindmap.tags.all %}
                                 <a href="#" class="a-tag-light mr-1">{{ tag.title }}</a>
                             {% endfor %}
@@ -32,9 +32,12 @@
                 <div id="mindImgContent" class="container-box-item">
                     <img class="my-img" src="{{ mindmap.img.url }}" />
                 </div>
-{#                <div id="mindFooterContent" class="container-box-item container-box-item-bk-color">#}
-{#                    <span>Footer</span>#}
-{#                </div>#}
+                <div id="mindFooterContent" class="container-box-item container-box-item-bk-color">
+                    <div class="info-panel">
+                        <i class="fa fa-thumbs-up info-panel-item" aria-hidden="true"></i>
+                        <span class="info-panel-item">{{ mindmap.vote }}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
