@@ -21,7 +21,7 @@
                     {% if mindmap.tags.all|length > 0 %}
                         <div style="margin-top: .2rem;">
                             {% for tag in mindmap.tags.all %}
-                                <a href="#" class="a-tag-light mr-1">{{ tag.title }}</a>
+                                <a href="{% url 'mindmap:mind-tag-page' tag.id %}" class="a-tag-light mr-1">{{ tag.title }}</a>
                             {% endfor %}
                         </div>
                     {% endif %}
@@ -34,8 +34,15 @@
                 </div>
                 <div id="mindFooterContent" class="container-box-item container-box-item-bk-color">
                     <div class="info-panel">
-                        <i class="fa fa-thumbs-up info-panel-item" aria-hidden="true"></i>
-                        <span class="info-panel-item">{{ mindmap.vote }}</span>
+                        <a id="voteA" href="javascript: voteAction('{{ mindmap.id }}')"
+                            {% if voted %}
+                                style="color: #009688;"
+                            {% else %}
+                                style="color: #BDBDBD;"
+                            {% endif %}>
+                            <i class="fa fa-thumbs-up info-panel-item" aria-hidden="true"></i>
+                            <span id="voteNumber" class="info-panel-item">{{ mindmap.vote }}</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -43,3 +50,7 @@
     </div>
 {% endblock %}
 
+{% block js %}
+    {{ block.super }}   {# 加载父block内容 #}
+    <script src="{% static 'mindmap/js/mind-detail.js' %}"></script>
+{% endblock %}

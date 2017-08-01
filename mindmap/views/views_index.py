@@ -26,10 +26,18 @@ def index(request, category=None, page=1):
 
         if category is not None:
             cur_category = Category.objects.filter(id=category).first()
-            items = (MindMap.objects.filter(category_id=category) |
-                     MindMap.objects.filter(category__parent=category)).order_by('-create_date')
+            items = (MindMap.objects.filter(category_id=category, public=True) |
+                     MindMap.objects.filter(category__parent=category, public=True))
         else:
-            items = MindMap.objects.all().order_by('-create_date')
+            items = MindMap.objects.filter(public=True)
+
+        # 排序
+        order = request.GET.get('ord')
+        if order is None or order == 'hot':
+            order = 'hot'
+            items = items.order_by('-vote', '-create_date')
+        elif order == 'new':
+            items = items.order_by('-create_date', '-vote')
 
         if cur_category:
             # 如果有当前分类
@@ -51,7 +59,8 @@ def index(request, category=None, page=1):
             'category_first_items': Category.objects.filter(parent__isnull=True),
             'category_second_items': category_second_items,
             'pages': get_pages(items, cur_page=page, url_generator=index_url_generator, category=category),
-            'category': category
+            'category': category,
+            'order': order
         }
 
         return render(request, 'mindmap/index.html', context=context)

@@ -27,7 +27,7 @@ class Category(models.Model):
 class Tag(models.Model):
     """标签"""
     title = models.CharField('标题', max_length=30)
-    count = models.IntegerField('属于该标签记录数量', default=0)
+    cnt = models.IntegerField('属于该标签记录数量', default=0)
 
     def __str__(self):
         return self.title
@@ -39,6 +39,7 @@ class MindMap(models.Model):
     description = models.CharField('描述', max_length=1000, blank=True)
     img = models.ImageField('图片', upload_to='img/%Y/%m/%d/', blank=True, null=True)
     mindmap = models.FileField('思维导图文件', upload_to='file/%Y/%m/%d/', blank=True, null=True)
+    public = models.BooleanField('是否公开', default=True)
     tags = models.ManyToManyField(Tag)
     category = models.ForeignKey(Category, null=True, blank=True)
     author = models.ForeignKey(User, null=True, default=1)
@@ -51,3 +52,12 @@ class MindMap(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class MindMapVote(models.Model):
+    """思维导图投票"""
+    mindmap = models.ForeignKey(MindMap)
+    author = models.ForeignKey(User)
+
+    def __str__(self):
+        return str(self.mindmap.title)

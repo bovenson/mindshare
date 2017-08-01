@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.conf.urls import url
-from mindmap.views import views_common, views_index, views_mind, views_category, views_user
+from mindmap.views import views_common, views_index, views_mind, views_category, views_user, views_tag
 
 
 urlpatterns = [
@@ -11,7 +11,12 @@ urlpatterns = [
     # Mind
     url(r'new-mind-page/?', views_mind.mind_new, name='new-mind-page'),
     url(r'new-mind/?', views_mind.process_new_mind, name='new-mind'),
+    url(r'mind/delete/?', views_mind.delete_mind, name='mind-delete'),
+    url(r'mind/vote/?', views_mind.mind_vote, name='mind-vote'),
     url(r'mind/show/(?P<tid>\d+)?/?', views_mind.show_mind_detail, name='show-mind'),
+
+    # tag
+    url(r'mind/tag/(?P<tid>\d+)/page/(?P<page>\d+)?/?', views_tag.show_tag_page, name='mind-tag-page'),
 ]
 
 # 分类

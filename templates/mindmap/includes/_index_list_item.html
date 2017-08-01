@@ -1,6 +1,9 @@
 {# 首页列表项 #}
 
-<div class="container-box-item container-box-item-bottom">
-    <a class="my-title my-title-a" style="margin-bottom: .6rem;" href="{% url 'mindmap:show-mind' mindmap.id %}">{{ mindmap.title }}</a>
+<div class="container-box-item container-box-item-bottom" id="divMindmap{{ mindmap.id }}">
+    <a href="javascript: void(0)" title="投票" class="ol-badge" style="vertical-align: top;">{{ mindmap.vote }}</a>
+    <a class="my-title my-title-a" style="margin-bottom: .6rem;" href="{% url 'mindmap:show-mind' mindmap.id %}">
+        <span>{{ mindmap.title }}</span>
+    </a>
     {% include 'mindmap/includes/_mind_info_panel.html' %}
 </div>

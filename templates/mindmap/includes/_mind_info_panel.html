@@ -1,7 +1,7 @@
 {# mind info panel #}
 
 <div class="info-panel">
-    <a class="info-panel-item a-tag-light" title="查看分类" href="javascript: void(0);">{{ mindmap.category.title }}</a>
+    <a class="info-panel-item a-tag-light" title="查看分类" href="{% url 'mindmap:index-with-category' mindmap.category.id %}">{{ mindmap.category.title }}</a>
     <span class="info-panel-item">•</span>
     <a class="info-panel-item" title="用户主页" href="{% url 'mindmap:user-page-with-uid' mindmap.author.id 1 %}" style="font-weight: 600;">{{ mindmap.author.nickname}}</a>
     <span class="info-panel-item">•</span>
@@ -19,8 +19,8 @@
         <a href="{{ mindmap.mindmap.url }}" download="" title="下载文件" class="info-panel-item"><i class="fa fa-download color-mid-grey" style="margin-top: .05rem;" aria-hidden="true"></i></a>
     {% endif %}
 
-    {% if mindmap.author == request.user %}
+    {% if mindmap.author == request.user or request.user.is_superuser %}
         <span class="info-panel-item">•</span>
-        <a href="#" title="删除" class="info-panel-item"><i class="fa fa-trash-o color-mid-grey" aria-hidden="true"></i></a>
+        <a href="javascript: deleteMindmap({{ mindmap.id }});" title="删除" class="info-panel-item"><i class="fa fa-trash-o color-mid-grey" aria-hidden="true"></i></a>
     {% endif %}
 </div>

@@ -23,3 +23,7 @@ def user_page_pagination_url_generator(page=1, uid=None, *args, **kwargs):
         return reverse('mindmap:user-page', args=(page,))
     else:
         return reverse('mindmap:user-page-with-uid', args=(uid, page))
+
+
+def tag_url_generator(page=1, tid=None, **kwargs):
+    return reverse('mindmap:mind-tag-page', args=(tid, page))

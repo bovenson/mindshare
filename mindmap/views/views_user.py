@@ -90,7 +90,7 @@ def user_page(request, uid=None, page=1):
     try:
         if uid is None:
             uid = request.user.id
-        items = MindMap.objects.filter(author=uid)
+        items = MindMap.objects.filter(public=True, author=uid)
         context = {
             'title': '个人中心',
             'pages': get_pages(items, cur_page=page, url_generator=user_page_pagination_url_generator, uid=uid),

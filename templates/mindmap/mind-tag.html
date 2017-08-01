@@ -1,0 +1,31 @@
+{% extends "mindmap/includes/base.html" %}
+{% load staticfiles %}
+
+{# 设置标题 #}
+{% block title %}{{ title }}{% endblock %}
+
+{# 自定义css #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'mindmap/css/pagination.css' %}">
+{% endblock %}
+
+{# 设置body #}
+{% block body %}
+    <div id="bodyContainer" class="container">
+        <div id="midContainer" class="col-lg-8 offset-lg-2">
+            <div class="container-box">
+                <div class="container-box-item container-box-item-bottom">
+                    <h1 class="my-title">{{ tag.title }} 标签</h1>
+                </div>
+                {# 主题列表 #}
+                {% for mindmap in pages.cur_page_items %}
+                    {% include 'mindmap/includes/_index_list_item.html' %}
+                {% endfor %}
+
+                <div class="container-box-item container-box-item-padding">
+                    {% include 'mindmap/includes/_pagination.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

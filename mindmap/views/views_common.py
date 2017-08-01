@@ -15,11 +15,14 @@ def return_404_page(request):
     return render(request, 'mindmap/404page.html')
 
 
-def json_res(res=False, msg=None):
+def json_res(res=False, msg=None, data=None, **kwargs):
     res_dict = {
         'res': 'success' if res else 'error',
         'msg': '操作成功' if res else '未知错误',
+        'data': data
     }
+    res_dict.update(kwargs)
+
     if msg:
         res_dict['msg'] = msg
     return res_dict

@@ -271,6 +271,16 @@ a {
     max-height: 100%;
 }
 
+.ol-badge {
+    color: $default-font-color;
+    padding: 0 .3rem;
+    border-radius: .2rem;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    background-color: $light-grey;
+}
+
 /* color */
 .color-mid-grey {
     color: $mid-grey;

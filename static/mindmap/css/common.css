@@ -187,6 +187,15 @@ a {
   height: 100%;
   max-height: 100%; }
 
+.ol-badge {
+  color: #66757f;
+  padding: 0 .3rem;
+  border-radius: .2rem;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  background-color: #E0E0E0; }
+
 /* color */
 .color-mid-grey {
   color: #BDBDBD; }

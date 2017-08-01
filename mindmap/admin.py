@@ -5,3 +5,4 @@ from mindmap.models import *
 admin.site.register(Category)
 admin.site.register(Tag)
 admin.site.register(MindMap)
+admin.site.register(MindMapVote)

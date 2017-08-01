@@ -47,6 +47,20 @@
                     {% endfor %}
                 </div>
 
+                {# 子分类及排序 #}
+                <div id="sortBy" style="background-color: white;">
+                    {% if category %}
+{#                        <a class="my-link-tag" href="{% url 'mindmap:index-with-category' category 1 %}">全部</a>#}
+                        <a class="my-link-tag {% if order == 'hot' %}my-link-tag-selected{% endif %}" href="{% url 'mindmap:index-with-category' category 1 %}?ord=hot">最热</a>
+                        <a class="my-link-tag {% if order == 'new' %}my-link-tag-selected{% endif %}" href="{% url 'mindmap:index-with-category' category 1 %}?ord=new">最新</a>
+                    {% else %}
+{#                        <a class="my-link-tag" href="{% url 'mindmap:index' %}">全部</a>#}
+                        <a class="my-link-tag {% if order == 'hot' %}my-link-tag-selected{% endif %}" href="{% url 'mindmap:index' %}?ord=hot">最热</a>
+                        <a class="my-link-tag {% if order == 'new' %}my-link-tag-selected{% endif %}" href="{% url 'mindmap:index' %}?ord=new">最新</a>
+                    {% endif %}
+                </div>
+
+
                 {# 主题列表 #}
                 {% for mindmap in pages.cur_page_items %}
                     {% include 'mindmap/includes/_index_list_item.html' %}
