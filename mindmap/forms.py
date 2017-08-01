@@ -18,9 +18,18 @@ from mindshare.limites import UPLOAD_IMG_FORMAT, UPLOAD_IMG_MAX_SIZE, UPLOAD_MIN
 
 
 class MindMapForm(forms.ModelForm):
+    categoryFirst = forms.IntegerField()
+
     class Meta:
         model = MindMap
         fields = ['title', 'description', 'img', 'mindmap', 'share', 'category']
+
+    def clean(self):
+        cleaned_data = super(MindMapForm, self).clean()
+        category_first = cleaned_data.get('categoryFirst')
+        category = cleaned_data.get('category')
+        if category is None:
+            cleaned_data['category'] = Category.objects.filter(id=category_first).first()
 
     def clean_img(self):
         _res = ''

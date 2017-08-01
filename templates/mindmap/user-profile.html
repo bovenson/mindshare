@@ -16,11 +16,23 @@
                 <form id="userProfileForm">
                     {% csrf_token %}
                     <div class="container-box-item container-box-item-bottom">
-                        <p class="one-line-tip-p">修改信息</p>
+                        <p class="one-line-tip-lg">修改信息</p>
                     </div>
 
                     <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">
+                        <p class="one-line-tip-md">
+                            <span>邮箱</span>
+                        </p>
+                    </div>
+                    <div class="container-box-item container-box-item-bottom">
+                        <p class="one-line-tip-md">
+                            <span>{{ request.user.email }}</span>
+                        </p>
+                    </div>
+
+
+                    <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
+                        <p class="one-line-tip-md">
                             <span>修改昵称</span>
                             <span class="error-tip" id="nicknameTip"></span>
                         </p>
@@ -30,7 +42,7 @@
                     </div>
 
                     <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
-                        <p class="one-line-tip-p">
+                        <p class="one-line-tip-md">
                             <a data-toggle="collapse" href="#collapseChangePassword" aria-expanded="false" aria-controls="collapseChangePassword">点击修改密码</a>
                             <span class="error-tip" id="passwordTip"></span>
                             <span class="error-tip" id="new_passwordTip"></span>
@@ -39,21 +51,21 @@
 
                     <div class="collapse" id="collapseChangePassword">
                         <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
-                            <p class="one-line-tip-p">原密码</p>
+                            <p class="one-line-tip-md">原密码</p>
                         </div>
                         <div class="container-box-item container-box-item-bottom container-box-item-input">
                             <input type="password" placeholder="输入原密码" name="password"/>
                         </div>
 
                         <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
-                            <p class="one-line-tip-p">新密码</p>
+                            <p class="one-line-tip-md">新密码</p>
                         </div>
                         <div class="container-box-item container-box-item-bottom container-box-item-input">
                             <input type="password" placeholder="输入新密码" name="new_password"/>
                         </div>
 
                         <div class="container-box-item container-box-item-bottom container-box-item-bk-color">
-                            <p class="one-line-tip-p">重复新密码</p>
+                            <p class="one-line-tip-md">重复新密码</p>
                         </div>
                         <div class="container-box-item container-box-item-bottom container-box-item-input">
                             <input type="password" placeholder="再次输入新密码" name="new_password_repeat"/>

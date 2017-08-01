@@ -25,11 +25,14 @@ body {
 /* 导航栏 */
 #navbar {
     background-color: $navbar-background-color;
+
     a {
         color: $default-font-color;
     }
 
     #navbarContainer {
+        padding: 0 .6rem 0 .3rem;
+        max-width: 52rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -91,7 +94,7 @@ a {
 
 .a-tag-light {
     color: $grey;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     padding: 0.1rem 0.2rem;
     border-radius: 0.2rem;
     background-color: $light-grey-background;
@@ -130,7 +133,7 @@ a {
             input, textarea {
                 width: 100%;
                 color: $blue-green;
-                font-size: $mid-font-size;
+                font-size: $font-size-sm;
                 border: none;
                 box-shadow: none;
                 outline: none;
@@ -154,6 +157,20 @@ a {
     margin-top: 1.5rem;
 }
 
+@media screen and (max-width: 768px) {
+    #bodyContainer {
+        margin: 1rem auto;
+    }
+
+    .container {
+        padding: .15rem;
+    }
+
+    #midContainer {
+        padding: 0;
+    }
+}
+
 /* 字体样式 */
 .one-line-tip-base {
     font-size: $mid-font-size;
@@ -165,6 +182,20 @@ a {
         @extend .one-line-tip-base;
         display: inline-block;
         margin: 0;
+    }
+
+    &-md {
+        @extend .one-line-tip-base;
+        display: inline-block;
+        margin: 0;
+        font-size: .7rem;
+    }
+
+    &-lg {
+        @extend .one-line-tip-base;
+        display: inline-block;
+        margin: 0;
+        font-size: .8rem;
     }
 }
 
@@ -192,7 +223,7 @@ a {
 /* button */
 .my-button {
     color: $teal;
-    font-size: $mid-font-size;
+    font-size: .8rem;
     padding: .2rem .3rem;
 
     &-confirm {
@@ -212,24 +243,14 @@ a {
     }
 }
 
-/* 文件选择器 */
-$my-file-text: (
-  placeholder: (
-    en: "选择文件...",
-  ),
-  button-label: (
-    en: "浏览",
-  )
-);
-
 /* 布局 */
 .info-panel {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     color: $mid-grey;
-    line-height: .7rem;
+    line-height: .8rem;
 
     &-item {
         display: inline-block;

@@ -17,8 +17,9 @@ function showUserPopover(event) {
 // 监听页面时间
 document.onmousedown = function (event) {
     // 如果点击位置在弹出框内
-    // console.log(event.srcElement);
-    if (isParent(userPopoverModalNode, event.srcElement)) {
+    var target = event.target || event.srcElement;
+    // console.log(target);
+    if (isParent(userPopoverModalNode, target)) {
     } else { // 否则
         userPopoverModal.css('visibility', 'hidden');
     }
