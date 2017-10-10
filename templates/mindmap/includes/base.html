@@ -32,8 +32,10 @@
 
     {# body #}
     {% block body %}{% endblock %}
-    {% block footer %}
-        <div id="footer"></div>
+
+    {# 左下角按钮组 #}
+    {% block right-bottom-btn-group %}
+        {% include "mindmap/includes/_right_bottom_btn_group.html" %}
     {% endblock %}
 
     {% include "mindmap/includes/dialog/_confirm_cancel_modal.html" %}

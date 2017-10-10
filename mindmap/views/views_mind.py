@@ -74,7 +74,7 @@ def show_mind_detail(request, tid=None):
     try:
         if tid:
             context = {}
-            mindmap = MindMap.objects.filter(id=tid).first()
+            mindmap = MindMap.objects.filter(id=tid, public=True).first()
             if mindmap:
                 if request.user.is_authenticated and \
                         MindMapVote.objects.filter(mindmap=mindmap, author=request.user).exists():

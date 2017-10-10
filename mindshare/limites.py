@@ -11,7 +11,7 @@ DESC: 限制
 # 允许上传图片格式
 UPLOAD_IMG_FORMAT = ['jpg', 'jpeg', 'png', 'nmp']
 # 允许的思维导图文件类型
-UPLOAD_MINDMAP_FORMAT = ['km', 'txt', 'md', 'mm', 'xmind', 'mmap']
+UPLOAD_MINDMAP_FORMAT = ['km', 'txt', 'md', 'mm', 'xmind', 'mmap', 'vym']
 
 # 允许上传图片大小(单位: MB)
 UPLOAD_IMG_MAX_SIZE = 10

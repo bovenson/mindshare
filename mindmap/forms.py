@@ -23,7 +23,7 @@ class MindMapForm(forms.ModelForm):
 
     class Meta:
         model = MindMap
-        fields = ['title', 'description', 'mindmap', 'share', 'category']
+        fields = ['title', 'description', 'mindmap', 'share', 'category', 'img']
 
     def clean(self):
         cleaned_data = super(MindMapForm, self).clean()
