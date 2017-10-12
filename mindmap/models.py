@@ -65,14 +65,20 @@ class MindMapVote(models.Model):
 
 class FeedbackMessage(models.Model):
     """反馈"""
-    content = models.CharField('内容', max_length=2000)
+    content = models.TextField('内容', max_length=2000)
     create_date = models.DateTimeField('创建时间', default=timezone.now, null=True)
     user = models.ForeignKey(User, null=True)
+
+    def __str__(self):
+        return self.concrete_model[:30]
 
 
 class Article(models.Model):
     """文章"""
     title = models.CharField("标题", max_length=200, blank=True, null=True)
-    content = models.CharField("内容", max_length=10000, blank=True)
+    content = models.TextField("内容", max_length=10000, blank=True)
     create_date = models.DateTimeField('创建时间', default=timezone.now, null=True)
+
+    def __str__(self):
+        return self.title
 

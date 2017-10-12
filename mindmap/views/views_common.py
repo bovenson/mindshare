@@ -10,6 +10,8 @@ DESC:
 """
 from django.shortcuts import render
 
+from mindmap.models import Article
+
 
 def return_404_page(request):
     return render(request, 'mindmap/404page.html')
@@ -29,9 +31,11 @@ def json_res(res=False, msg=None, data=None, **kwargs):
 
 
 def about_view(request):
+    article = Article.objects.filter(title='about').first() or Article.objects.filter(title='关于').first()    # 获取
+
     context = {
         'title': '关于',
-        'content': '# hello'
+        'article': article
     }
 
     return render(request, 'mindmap/html/markdown-show.html', context=context)

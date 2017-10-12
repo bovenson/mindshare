@@ -22,14 +22,9 @@
         }
     </style>
 
-    <div class="container-fluid">
-        <div class="row">
-{#            <div class="col-lg-3 push-lg-7">#}
-{#                <div class="toc-container" id="tocContainer"></div>#}
-{#            </div>#}
-
-            <div class="col-lg-6 offset-lg-3" style="padding: .5rem 0;">
-{#                <h3 style="text-align: center;">{{ article.title }}</h3>#}
+    <div class="container">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="container-box" style="padding: 1rem; margin-top: 1rem;">
                 <label for="articleContent"></label>
                 <textarea name="content" id="articleContent" style="display: none;">{{ article.content }}</textarea>
                 <div id="mdEditor">
