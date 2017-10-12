@@ -1,0 +1,58 @@
+{% extends "mindmap/includes/base.html" %}
+{% load staticfiles %}
+
+{# 设置标题 #}
+{% block title %}{{ title }}{% endblock %}
+
+{# 自定义css #}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'mindmap/css/pagination.css' %}">
+{% endblock %}
+
+{# 设置body #}
+{% block body %}
+
+    <style>
+        .toc-container {
+            background-color: white;
+            border: solid 1px white;
+            border-radius: .2rem;
+            margin-top: 5.8rem;
+            padding: 1rem;
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+{#            <div class="col-lg-3 push-lg-7">#}
+{#                <div class="toc-container" id="tocContainer"></div>#}
+{#            </div>#}
+
+            <div class="col-lg-6 offset-lg-3" style="padding: .5rem 0;">
+{#                <h3 style="text-align: center;">{{ article.title }}</h3>#}
+                <label for="articleContent"></label>
+                <textarea name="content" id="articleContent" style="display: none;">{{ article.content }}</textarea>
+                <div id="mdEditor">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static 'mindmap/plugins/editormd/lib/marked.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/lib/prettify.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/lib/underscore.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/lib/raphael.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/lib/sequence-diagram.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/lib/flowchart.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/lib/jquery.flowchart.min.js' %}"></script>
+
+    <script src="{% static 'mindmap/plugins/editormd/lib/codemirror/codemirror.min.js' %}"></script>
+    <script src="{% static 'mindmap/plugins/editormd/js/editormd.js' %}"></script>
+    <script src="{% static 'mindmap/js/editor-md-usage.js' %}"></script>
+    <script>
+        editorMdShow("mdEditor", $("#articleContent").val(), "");
+    </script>
+{% endblock %}

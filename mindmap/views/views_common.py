@@ -26,3 +26,12 @@ def json_res(res=False, msg=None, data=None, **kwargs):
     if msg:
         res_dict['msg'] = msg
     return res_dict
+
+
+def about_view(request):
+    context = {
+        'title': '关于',
+        'content': '# hello'
+    }
+
+    return render(request, 'mindmap/html/markdown-show.html', context=context)

@@ -17,6 +17,9 @@ urlpatterns = [
 
     # tag
     url(r'mind/tag/(?P<tid>\d+)/page/(?P<page>\d+)?/?', views_tag.show_tag_page, name='mind-tag-page'),
+
+    # 关于
+    url(r'about/?', views_common.about_view, name='about'),
 ]
 
 # 分类
