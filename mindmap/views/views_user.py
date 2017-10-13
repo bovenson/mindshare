@@ -81,6 +81,7 @@ def user_login(request):
     return JsonResponse(res)
 
 
+@login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect("/")
@@ -90,6 +91,8 @@ def user_page(request, uid=None, page=1):
     try:
         if uid is None:
             uid = request.user.id
+        if uid is None:
+            return return_404_page(request)
         items = MindMap.objects.filter(public=True, author=uid)
         context = {
             'title': '个人中心',

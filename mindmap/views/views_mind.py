@@ -21,6 +21,7 @@ from mindmap.models import Category, Tag, MindMap, MindMapVote
 from mindmap.views.views_common import json_res, return_404_page
 
 
+@login_required
 def mind_new(request):
     context = {
         'title': '创建主题',
@@ -111,6 +112,7 @@ def delete_mind(request):
     return JsonResponse(json_res(res=False, msg='未知错误'))
 
 
+@login_required
 @require_http_methods(["POST"])
 def mind_vote(request):
     try:
