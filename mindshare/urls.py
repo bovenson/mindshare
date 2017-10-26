@@ -22,6 +22,6 @@ from mindshare import settings
 urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    url(r'^admin/?', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'', include('mindmap.urls', namespace='mindmap')),
 ]

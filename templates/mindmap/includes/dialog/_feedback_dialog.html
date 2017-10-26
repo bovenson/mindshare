@@ -10,12 +10,15 @@
                 </button>
             </div>
             <div class="modal-body" style="padding: .3rem .8rem;">
-                <textarea style="width: 100%; font-size: .8rem; border: none; outline: none; margin-bottom: -.5rem;" class="no-padding-margin" rows="10" placeholder="请在这里吐槽..." name="description"></textarea>
+                <textarea id="feedbackContent" style="width: 100%; font-size: .8rem; border: none; outline: none; margin-bottom: -.5rem;" class="no-padding-margin" rows="10" placeholder="请在这里吐槽..." name="description"></textarea>
             </div>
             <div class="modal-footer">
-                <button id="feedbackModalConfirm" type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                <button id="feedbackModalConfirm" type="button" class="btn btn-primary" onclick="sendFeedback()">确定</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
             </div>
         </div>
     </div>
 </div>
+
+{# 隐藏信息 #}
+<span id="feedbackUrl" style="display: none">{% url 'mindmap:feedback-add' %}</span>

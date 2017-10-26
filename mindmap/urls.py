@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.conf.urls import url
 from mindmap.views import views_common, views_index, views_mind, views_category, views_user, views_tag
+from mindmap.views import views_feedback
 
 
 urlpatterns = [
@@ -20,6 +21,9 @@ urlpatterns = [
 
     # 关于
     url(r'about/?', views_common.about_view, name='about'),
+
+    # 反馈
+    url(r'feedback/add/?', views_feedback.feedback_add, name='feedback-add'),
 ]
 
 # 分类
