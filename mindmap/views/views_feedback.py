@@ -23,6 +23,8 @@ def feedback_add(request):
         content: 反馈内容
     """
     try:
+        # feedback = FeedbackMessage(content=request.POST.get('content'),
+        #                            user_id=request.user.id if request.user.is_authenticated() else None)
         feedback = FeedbackMessage(content=request.POST.get('content'),
                                    user=request.user if request.user.is_authenticated() else None)
         feedback.save()

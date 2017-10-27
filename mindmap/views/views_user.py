@@ -12,6 +12,7 @@ from django.shortcuts import render
 
 from mindmap.forms import UserForm, UserUpdateForm
 from mindmap.models import MindMap
+from mindmap.util.request_util import get_ip_from_request
 from mindmap.views.url_generator import user_page_pagination_url_generator
 from mindmap.views.views_common import return_404_page, json_res
 from mindmap.views.views_pagination import get_pages
@@ -26,7 +27,7 @@ def user_register(request):
 
     if request.method == "POST":
         # 使用POST的数据新建用户Form
-        form = UserForm(request.POST)
+        form = UserForm(request.POST, {'register_ip': get_ip_from_request(request)})
         # 验证是否输入合法
         if form.is_valid():
             user = form.save(commit=False)

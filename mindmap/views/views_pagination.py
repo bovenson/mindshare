@@ -6,7 +6,7 @@ AUTHOR: bovenson
 EMAIL: szhkai@qq.com
 FILE: views_pagination.py
 DATE: 17-7-31 下午12:25
-DESC: 
+DESC: 自定义分页工具
 """
 import traceback
 

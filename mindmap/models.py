@@ -5,6 +5,7 @@ from django.db import models
 from django.utils import timezone
 
 User.add_to_class('nickname', models.CharField(max_length=200, null=True, default="#"))
+User.add_to_class('register_ip', models.CharField(max_length=50, null=True, default="#"))
 
 
 class Category(models.Model):
@@ -70,7 +71,7 @@ class FeedbackMessage(models.Model):
     user = models.ForeignKey(User, null=True)
 
     def __str__(self):
-        return self.concrete_model[:30]
+        return self.content[:30]
 
 
 class Article(models.Model):
